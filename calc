@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class='container'>
+       <div class='row show-center'>
+        <h1 id="roll">Roll number</h1>
+        </div>
+       <div class='row show-center'>
+        <input type="text" id="data1" size="50px" class="m-font round-border padding-5">
+        <input type="text" id="data2" size="50px" class="m-font round-border padding-5" >
+       </div>
+      <div class='row show-center'>
+        <h2 id="answer">Answer</h2>
+      </div>
+      <div class='row show-center'>
+        <button class="btn" onclick="addition()">Add</button>
+        <button class="btn">Subtract</button>
+        <button class="btn">Multiply</button>
+        <button class="btn">Divide</button>
+        <button class="btn">Is even</button>
+        <button class="btn">Is odd</button>
+      </div>
+      <div class='row show-center'>
+        <button class="btn" onclick="set_roll_number() ">set roll number</button>
+      </div>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+CSS:
+.container{
+    margin:0px;
+    padding:0px;
+    width:100%;
+    height:auto;
+}
+.row{
+    width:100%;
+    height:auto;
+    background-color: aqua;
+    float:left;
+}
+.show-center{
+    text-align: center;
+}
+.l-font{
+    font: size 35px;;
+}
+.s-font{
+    font: size 25px;;
+}
+.m-font{
+    font: size 30px;;
+}
+.round-border{
+    border-radius: 5px;
+}
+.btn{
+    height:30px;
+    border:solid 3px green;
+    border-radius: 20px;
+    background-color: gray;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    font-size: 15px;
+}
+.btn:hover{
+    border:solid 3px white;
+    border-radius: 10px;
+    background-color: green;
+    box-shadow: 5px 5px 10px #666;
+}
+#answer{
+    font-size: 30px;
+}
+.padding-5{
+    padding: 5px 10px;
+}
+
+JAVASCRIPT:
+function set_roll_number(){
+    let r_num=prompt('Enter your roll number')
+    document.getElementById('roll').innerHTML=r_num
+}
+function addition(){
+    let value1=document.getElementById('data1').value;
+    let value2=document.getElementById('data2').value;
+    if(value1==''||value2==''){
+        alert('entering data is mandatory');
+    }
+    else{
+        value1=Number(value1);
+        value2=Number(value2);
+        let result=value1+value2;
+        document.getElementById('answer').innerHTML=result;
+    }
+}
